@@ -99,17 +99,17 @@ function update(min, max){
 
     graph['links'] = graph['links'].filter(filterValue(min, max));
 
-    // for (j = 0; j < graph.nodes.length; i++){
-    //   var id = graph.nodes[j]['id'];
-    //   graph.nodes[j]['filter'] = true;
-    //   for (var i=0; i < graph.links.length; i++) {
-    //     var source = graph.links[i]["source"];
-    //     var target = graph.links[i]['target'];
-    //     if (id == source || id == target) {
-    //       graph.nodes[j]['filter'] = false;
-    //     }
-    //   }
-    // }
+    for (j = 0; j < graph.nodes.length; i++){
+      var id = graph.nodes[j]['id'];
+      graph.nodes[j]['filter'] = true;
+      for (var i=0; i < graph.links.length; i++) {
+        var source = graph.links[i]["source"];
+        var target = graph.links[i]['target'];
+        if (id == source || id == target) {
+          graph.nodes[j]['filter'] = false;
+        }
+      }
+    }
 
     graph['nodes'] = graph['nodes'].filter(filterNodes);
 
